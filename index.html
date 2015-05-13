@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<title>jQuery Mobile Panel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="./js/jquery.js"></script>
+	<script src="./js/jquery.mobile-1.4.5.js"></script>
+	<script src="./js/calculate.js"></script>
+	<script src="./js/main.js"></script>
+</head>
+<body id="id_body">
+
+	<!-- PAGE -1 -->
+
+	<div class="panel_wrapper" data-role="page" id="page_bmi">
+        <!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-01">
+            <ul>
+                <li class="bmi"><a href="#page_bmi" title="Body Mass Index">Body Mass Index</a></li>
+                <li class="waist-to-ht"><a href="#page_wth" title="Waist-to-Height Ratio">Waist-to-Height Ratio</a></li>
+                <li class="energy-exp"><a href="#page_bmr" title="Energy Expenditure">Energy Expenditure</a></li>
+                <li class="body-fat"><a href="#page_bfp" title="Body Fat Percentage">Body Fat Percentage</a></li>
+                <br/><br/><br/><br/><br/>
+                <li class="help"><a href="#page_help" title="Help & Feedback">Help & Feedback</a></li>
+            </ul>
+        </div>
+		<div class="header" data-role="header">
+			<span class="open left"><a data-icon="bars" href="#panel-01">&#61641;</a></span>
+            <span class="title">Body Mass Index</span>            
+            <a href="#" id="id_reset" class="ui-btn-right" data-icon="refresh" data-iconpos="notext" data-role="button"></a>
+			<!-- <span class="open right"><a href="#panel-02">&#9776;</a></span>  -->
+		</div>
+        <div data-role="content" class="ui-content" id="bmi_div">
+        <table style="width:100%;height:100%;">
+			<tr>
+    				<td style="width:33%;"><label for="id_age">Age:</label></td>
+    				<td style="width:34%;"><input id="id_age" placeholder="Age" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+				    	<select name="gender" id="id_gender" data-role="slider" data_mini="true">
+				        <option value="woman" selected="selected">Female</option>
+				        <option value="man" >Male</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_height">Height:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_height" placeholder="Height" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    				
+    					<select style="line-height: 200px;" name="ht_metric" id="id_ht_metric" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="feet">Feet</option>
+				    	</select>
+				
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_weight">Weight:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_weight" placeholder="Weight" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="wt_metric" id="id_wt_metric" data-native-menu="false" data_mini="true">
+				        <option value="kg" selected="selected">KG</option>
+				        <option value="lb">LB</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_result">Result:</label></td>
+    				<td colspan="2"><div id="id_result" data_mini="true"></div></td>
+			</tr>
+		</table> 
+		<hr>
+        <table style="width:100%;height:100%;">
+        	<tr id="row1">
+        		<td style="width:67%;">Underweight</td>
+        		<td style="width:33%;"><div id="id_underweight" ></div></td>
+        	</tr>
+        	<tr id="row2">
+        		<td style="width:67%;">Normal</td>
+				<td style="width:33%;"><div id="id_normal" ></div></td>
+        	</tr>
+        	<tr id="row3">
+        		<td style="width:67%;">Overweight</td>
+        		<td style="width:33%;"><div id="id_overweight" ></div></td>
+        	</tr>
+        	<tr id="row4">
+        		<td style="width:67%;">Obese</td>
+        		<td style="width:33%;"><div id="id_obese" ></div></td>
+        	</tr>
+        	<tr id="row5">
+        		<td style="width:67%;">Morbidly Obese</td>
+        		<td style="width:33%;"><div id="id_morbidly_obese"></div></td>
+        	</tr>
+        	
+        </table>
+         <hr>
+        <table style="width:100%;height:100%;">
+        	<tr>
+        		<td style="width:67%;">Ideal BMI for Age</td>
+        		<td style="width:33%;"><div id="id_ideal_bmi"></div></td>
+        	</tr>
+        	<tr>
+        		<td style="width:67%;">Ideal Weight in KG</td>
+				<td style="width:33%;"><div id="id_ideal_wt"></div></td>
+        	</tr>
+        </table>
+        </div> 
+	</div>
+	
+	<!-- PAGE -2 -->
+	
+	<div class="panel_wrapper" data-role="page" id="page_wth">
+		<!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-02">
+            <ul>
+                <li class="bmi"><a href="#page_bmi" title="Body Mass Index">Body Mass Index</a></li>
+                <li class="waist-to-ht"><a href="#page_wth" title="Waist-to-Height Ratio">Waist-to-Height Ratio</a></li>
+                <li class="energy-exp"><a href="#page_bmr" title="Energy Expenditure">Energy Expenditure</a></li>
+                <li class="body-fat"><a href="#page_bfp" title="Body Fat Percentage">Body Fat Percentage</a></li>
+                <br/><br/><br/><br/><br/>
+                <li class="help"><a href="#page_help" title="Help & Feedback">Help & Feedback</a></li>
+            </ul>
+        </div>
+		<div class="header" data-role="header">
+			<span class="open left"><a href="#panel-02">&#61641;</a></span>
+            <span class="title">Waist-to-Height Ratio</span>
+            <a href="#" id="id_reset_2" class="ui-btn-right" data-icon="refresh" data-iconpos="notext" data-role="button"></a>
+			<!-- <span class="open right"><a href="#panel-02">&#9776;</a></span>  -->
+		</div>
+        <div class="content" data-role="content" id="wth_div">
+        <table style="width:100%;height:100%;">
+			<tr>
+    				<td style="width:33%;"><label for="id_age_2">Age:</label></td>
+    				<td style="width:34%;"><input name="age" id="id_age_2" placeholder="Age" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="gender" id="id_gender_2" data-role="slider" data_mini="true">
+				        <option value="woman" selected="selected">Female</option>
+				        <option value="man" >Male</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_height_2">Height:</label></td>
+    				<td style="width:34%;"><input name="height" id="id_height_2" placeholder="Height" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="ht_metric" id="id_ht_metric_2" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="feet">Feet</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_waist_2">Waist:</label></td>
+    				<td style="width:34%;"><input name="waist" id="id_waist_2" placeholder="Waist" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="waist_metric" id="id_waist_metric_2" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="inches">INCHES</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_result_2">Result:</label></td>
+    				<td style="width:34%;" colspan="2"><div id="id_result_2" data_mini="true"></div></td>
+			</tr>
+		</table> 
+		<hr>
+        <table style="width:100%;height:100%;">
+        	<tr id="row6">
+        		<td style="width:67%;">Underweight</td>
+        		<td style="width:33%;"><div id="id_underweight_2" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row7">
+        		<td style="width:67%;">Normal</td>
+				<td style="width:33%;"><div id="id_normal_2" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row8">
+        		<td style="width:67%;">Overweight</td>
+        		<td style="width:33%;"><div id="id_overweight_2" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row9">
+        		<td style="width:67%;">Obese</td>
+        		<td style="width:33%;"><div id="id_obese_2" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row10">
+        		<td style="width:67%;">Morbidly Obese</td>
+        		<td style="width:33%;"><div id="id_morbidly_obese_2" data_mini="true"></div></td>
+        	</tr>
+        	
+        </table>
+        <hr>
+        <table style="width:100%;height:100%;">
+        	<tr>
+        		<td style="width:67%;">Ideal Value for Age</td>
+        		<td style="width:33%;"><div id="id_ideal_wth" data_mini="true"></td>
+        	</tr>
+        	<tr>
+        		<td style="width:67%;">Ideal Waist in cm</td>
+				<td style="width:33%;"><div id="id_ideal_waist" data_mini="true"></td>
+        	</tr>
+        </table>
+        </div> 
+	</div>
+	
+	<!-- PAGE 3 -->
+
+	<div class="panel_wrapper" data-role="page" id="page_bmr">
+        <!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-03">
+            <ul>
+                <li class="bmi"><a href="#page_bmi" title="Body Mass Index">Body Mass Index</a></li>
+                <li class="waist-to-ht"><a href="#page_wth" title="Waist-to-Height Ratio">Waist-to-Height Ratio</a></li>
+                <li class="energy-exp"><a href="#page_bmr" title="Energy Expenditure">Energy Expenditure</a></li>
+                 <li class="body-fat"><a href="#page_bfp" title="Body Fat Percentage">Body Fat Percentage</a></li>
+                <br/><br/><br/><br/><br/>
+                <li class="help"><a href="#page_help" title="Help & Feedback">Help & Feedback</a></li>
+            </ul>
+        </div>
+		<div class="header" data-role="header">
+			<span class="open left"><a data-icon="bars" href="#panel-03">&#61641;</a></span>
+            <span class="title">Basal Metabolic Rate</span>
+            <!-- <a href="#" data-icon="refresh" class="ui-btn-right" id="id_reset_3">Reset</a>-->
+            <a href="#" id="id_reset_3" class="ui-btn-right" data-icon="refresh" data-iconpos="notext" data-role="button"></a>
+			<!-- <span class="open right"><a href="#panel-02">&#9776;</a></span>  -->
+		</div>
+        <div class="content" data-role="content" id="bmr_div">
+        <table style="width:100%;height:100%;">
+			<tr>
+    				<td style="width:33%;"><label for="id_age_3">Age:</label></td>
+    				<td style="width:34%;"><input id="id_age_3" placeholder="Age" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="gender" id="id_gender_3" data-role="slider" data_mini="true">
+				        <option value="woman" selected="selected">Female</option>
+				        <option value="man" >Male</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_height_3">Height:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_height_3" placeholder="Height" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="ht_metric" id="id_ht_metric_3" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="feet">Feet</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_weight_3">Weight:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_weight_3" placeholder="Weight" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="wt_metric" id="id_wt_metric_3" data-native-menu="false" data_mini="true">
+				        <option value="kg" selected="selected">KG</option>
+				        <option value="lb">LB</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_activity_3">Activity:</label></td>
+    				<td style="width:34%;" colspan="2">
+    					<select name="activity" id="id_activity_3" data-native-menu="false" data_mini="true">
+				        <option value="inactive">Extremely Inactive</option>
+				        <option value="sedentary">Sedentary</option>
+						<option value="moderate" selected="selected">Moderately Active</option>
+						<option value="vigorous">Vigorously Active</option>
+						<option value="extreme">Extremely Active</option>
+				    	</select>
+				    </td>
+			</tr>
+		</table> 
+		<hr>
+        <center><label for="id_bmr_3">Basal Metabolic Rate:</label>
+        <div id="id_bmr_3" data_mini="true" style="float-left;display:inline-block"></div><div style="float-right;display:inline-block">&nbsp; kcal</div></center>
+        <hr>
+        <center><label for="id_tdee_3">Total Daily Energy Expenditure:</label>
+        <div id="id_tdee_3" data_mini="true" style="float-left;display:inline-block"></div><div style="float-right;display:inline-block">&nbsp; kcal</div></center>
+       </div>
+	</div>
+	
+	<!-- PAGE 4 -->
+
+	<div class="panel_wrapper" data-role="page" id="page_bfp">
+        <!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-04">
+            <ul>
+                <li class="bmi"><a href="#page_bmi" title="Body Mass Index">Body Mass Index</a></li>
+                <li class="waist-to-ht"><a href="#page_wth" title="Waist-to-Height Ratio">Waist-to-Height Ratio</a></li>
+                <li class="energy-exp"><a href="#page_bmr" title="Energy Expenditure">Energy Expenditure</a></li>
+                <li class="body-fat"><a href="#page_bfp" title="Body Fat Percentage">Body Fat Percentage</a></li>
+                <br/><br/><br/><br/><br/>
+                <li class="help"><a href="#page_help" title="Help & Feedback">Help & Feedback</a></li>
+            </ul>
+        </div>
+		<div class="header" data-role="header">
+			<span class="open left"><a data-icon="bars" href="#panel-04">&#61641;</a></span>
+            <span class="title">Body Fat Percentage</span>
+            <a href="#" id="id_reset_4" class="ui-btn-right" data-icon="refresh" data-iconpos="notext" data-role="button"></a>
+			<!-- <span class="open right"><a href="#panel-02">&#9776;</a></span>  -->
+		</div>
+        <div class="content" data-role="content" id="bfp_div">
+        <table style="width:100%;height:100%;">
+			<tr>
+    				<td style="width:33%;"><label for="id_age_4">Age:</label></td>
+    				<td style="width:34%;"><input id="id_age_4" placeholder="Age" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="gender" id="id_gender_4" data-role="slider" data_mini="true">
+				        <option value="woman" selected="selected">Female</option>
+				        <option value="man" >Male</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_height_4">Height:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_height_4" placeholder="Height" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="ht_metric" id="id_ht_metric_4" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="feet">Feet</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_waist_4">Waist:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_waist_4" placeholder="Waist" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="wt_metric" id="id_waist_metric_4" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="inches">INCHES</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_neck_4">Neck:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_neck_4" placeholder="Neck" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="wt_metric" id="id_neck_metric_4" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="inches">INCHES</option>
+				    	</select>
+				    </td>
+				</div>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_hip_4">Hip:</label></td>
+    				<td style="width:34%;"><input class="bmi" id="id_hip_4" placeholder="Hip" value="" type="tel" data_mini="true"></td>
+    				<td style="width:33%;">
+    					<select name="wt_metric" id="id_hip_metric_4" data-native-menu="false" data_mini="true">
+				        <option value="cm" selected="selected">CM</option>
+				        <option value="inches">INCHES</option>
+				    	</select>
+				    </td>
+			</tr>
+			<tr>
+    				<td style="width:33%;"><label for="id_bfp_4">Result:</label></td>
+    				<td><div id="id_bfp_4" data_mini="true" colspan="2"></div></td>
+				</div>
+			</tr>
+		</table> 
+		<hr>
+        <table style="width:100%;height:100%;">
+        	<tr id="row11">
+        		<td style="width:67%;">Low</td>
+        		<td style="width:33%;"><div id="id_low_4" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row12">
+        		<td style="width:67%;">Normal</td>
+				<td style="width:33%;"><div id="id_normal_4" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row13">
+        		<td style="width:67%;">High</td>
+        		<td style="width:33%;"><div id="id_high_4" data_mini="true"></div></td>
+        	</tr>
+        	<tr id="row14">
+        		<td style="width:67%;">Very High</td>
+        		<td style="width:33%;"><div id="id_vhigh_4" data_mini="true"></div></td>
+        	</tr>
+        	
+        </table>
+        <hr>
+        </div> 
+	</div>
+	
+	<!-- PAGE 5 -->
+
+	<div class="panel_wrapper" data-role="page" id="page_help" data-content-theme="e">
+        <!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-05">
+            <ul>
+                <li class="bmi"><a href="#page_bmi" title="Body Mass Index">Body Mass Index</a></li>
+                <li class="waist-to-ht"><a href="#page_wth" title="Waist-to-Height Ratio">Waist-to-Height Ratio</a></li>
+                <li class="energy-exp"><a href="#page_bmr" title="Energy Expenditure">Energy Expenditure</a></li>
+                <li class="body-fat"><a href="#page_bfp" title="Body Fat Percentage">Body Fat Percentage</a></li>
+                <br/><br/><br/><br/><br/>
+                <li class="help"><a href="#page_help" title="Help & Feedback">Help & Feedback</a></li>
+            </ul>
+        </div>
+		<div class="header" data-role="header">
+			<span class="open left"><a data-icon="bars" href="#panel-05">&#61641;</a></span>
+            <span class="title">Help & Feedback</span>
+            <a href="#" id="id_reset_5" class="ui-btn-right" data-icon="refresh" data-iconpos="notext" data-role="button"></a>
+			<!-- <span class="open right"><a href="#panel-02">&#9776;</a></span>  -->
+		</div>
+		<div data-role="collapsible" data-theme="e" data-content-theme="false">
+		    <h4>Body Mass Index</h4>
+		    <p>Body Mass Index is an approximate measure of whether someone is over- or underweight, calculated by dividing their weight in kilograms by the square of their height in metres.</p>
+			<p>A body mass index in the low range signals that you could be malnourished. Maybe your body isn’t properly absorbing nutrients or maybe you’re just not getting enough calories to support your activity level. Conversely, having a BMI on the higher end alerts your physician that your risks of heart disease, diabetes and certain cancers are higher than someone with a normal BMI. Your doctor might set you up with a registered dietitian, who can help you get your weight back on track and reduce your risk of developing health problems.</p>
+		</div>
+		<div data-role="collapsible" data-theme="e" data-content-theme="false">
+		    <h4>Waist to Height Ratio</h4>
+		    <p>The waist-to-height ratio (WHtR) of a person is defined as the person's waist circumference, divided by the person's height. The WHtR is a measure of the distribution of body fat. Higher values of WHtR indicate higher risk of obesity-related cardiovascular diseases; it is correlated with abdominal obesity.</p>
+		</div>
+		<div data-role="collapsible" data-theme="e" data-content-theme="false">
+		    <h4>Basal Metabolic Rate</h4>
+		    <p>Basal Metabolic Rate, or BMR, is the measurement of an organism's energy expenditure when at rest. In other words, when you're at rest, not digesting any food and at a comfortable temperature, it's the amount of energy it takes for your body to maintain life. About 70% of the energy we use every day is due to our organs functioning to keep us alive and healthy. The remaining 30% is broken down into digestion of food (10%) and energy needed for activity (20%).</p>
+			<p>Knowing your BMR can be useful if you're trying to gain or lose weight. Since BMR is a calculation of how much energy it takes to maintain life, consuming more kilocalories in a day than your BMR calls for can cause you to gain weight, while eating fewer kilocalories than your BMR requires is likely to cause you to lose weight. However, these numbers are also dependent upon how active you are. Since exercising burns calories, if you are very active, you will need more calories to sustain life versus someone who is not as active.</p>
+		</div>
+		<div data-role="collapsible" data-theme="e" data-content-theme="false">
+		    <h4>Body Fat Percentage</h4>
+		    <p>Body fat percentage is simply the percentage of fat that your body contains. For your body to function properly it is essential that your body contains a certain amount of fat. Body fate helps regulate your body temperature, it cushions and insulate organs and is the main form of the body's energy storage. It is important for everyone to have a healthy amount of body fat. When people say they want to lose weight it is implied that they want to lose fat.</p>
+		</div>
+		<hr>
+		Note: Please keep in mind that this BMI calculator is not meant to serve as a source of clinical guidance and is not intended to be a substitute for professional medical advice.
+		<hr>
+		<div align="center">
+		<a href="mailto:tizen.apps.shobhita@gmail.com?subject=Fitness Calculator" data-role="button" data-theme="a" data-inline="true" data-filter="false">Feedback</a>
+		</div>
+	</div>
+</body>
+</html>

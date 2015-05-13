@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'panel-style';
+  src: url('fonts/panel-style.eot');
+  src: url('fonts/panel-style.eot#iefix') format('embedded-opentype'),
+       url('fonts/panel-style.woff') format('woff'),
+       url('fonts/panel-style.ttf') format('truetype'),
+       url('fonts/panel-style.svg#panel-style') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.panel_wrapper {
+	background-color: #ffffff;
+}
+.panel_wrapper .header {
+	text-align: center;
+	line-height: 55px;
+	width: 100%;
+	height: 50px;
+	background-color: #3388cc;
+	color: #fff;
+	text-shadow: 0 0 0 rgba(255,255,255,0);
+	position: relative;
+}
+.panel_wrapper .header .title { 
+	font-family: Gill, Helvetica, sans-serif;
+}
+.panel_wrapper .header a,
+.panel_wrapper .header a:hover,
+.panel_wrapper .header a:active { 
+	color: #fff !important;
+	text-decoration: none;
+	font-family: 'panel-style';
+	background-color: rgba(0,0,0,0);
+	font-size: 17px;
+	font-weight: normal;
+}
+.panel_wrapper .open a,
+.panel_wrapper .open a:hover {
+	padding: 7px 15px;
+	background-color: #000;
+	border-radius: 3px;
+}
+.panel_wrapper .header .open { 
+	color: #fff;
+	position: absolute;
+}
+.panel_wrapper .header .open.left {
+	left: 20px;
+	cursor: pointer;
+}
+.panel_wrapper .header .open.right {
+	right: 20px;
+	cursor: pointer;
+}
+.panel_wrapper .panel {
+	/*background: #7F8C8D;*/
+	color: #ECF0F1;
+}
+.panel_wrapper .panel a {
+	/*color: #FFF !important;*/
+	text-shadow: 0 0 0 rgba(0,0,0,0);
+	font-size: 14px;
+	padding: 15px 20px 15px 60px;
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px solid #475657;
+	border-top: 1px solid #95A5A6;
+	position: relative;
+	font-weight: 400;
+}
+.panel_wrapper .panel ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border-bottom: 1px solid #95A5A6;
+}
+.panel_wrapper .panel .avatar {
+	position: absolute;
+	top: 8px;
+	left: 20px;
+}
+.panel_wrapper .ui-panel-inner {
+	padding: 0;
+}
+.panel_wrapper .panel a:hover {
+	background-color: #b7bfc2;
+}
+.panel_wrapper .panel.right a:before {
+	content: '';
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: #3388cc;
+	right: 20px;
+}
+.panel_wrapper .panel.left a:before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 15px;
+	left: 20px;
+	font-family: 'panel-style';
+	text-align: center;
+	font-size: 18px;
+}
+/*.panel_wrapper .panel.left .newsfeed a:before { 
+	content: '\f09e';
+}
+.panel_wrapper .panel.left .profile a:before { 
+	content: 'ðŸ‘¤';
+}
+.panel_wrapper .panel.left .setting a:before { 
+	content: '\2699';
+}
+.panel_wrapper .panel.left .logout a:before { 
+	content: '\e78e';
+}
+.panel_wrapper .panel.left .report a:before { 
+	content: '\f0e0';
+}*/
+
+.paintBMI{
+	color: #40E0D0;
+}
+
+.ui-dialog .ui-dialog-buttonpane { 
+    text-align: center;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { 
+    float: none;
+}
+
+input, select{
+  box-sizing: border-box;
+}
+/*
+#id_ht_metric-button, #id_wt_metric-button, #id_ht_metric_2-button, #id_waist_metric_2-button{
+	 padding-bottom: 0.14em  !important;
+}
+*/
+
+#bmi_div .ui-select a, #wth_div .ui-select a, #bmr_div .ui-select a, #bfp_div .ui-select a{
+	padding-top: 0.45em  !important;
+    padding-bottom: 0.4em  !important;
+}
+
+
+#bmi_div .ui-slider-switch, #wth_div .ui-slider-switch, #bmr_div .ui-slider-switch, #bfp_div .ui-slider-switch{
+	height:35px;
+	display:block;
+}
+
+#bmi_div .ui-slider-track .ui-btn.ui-slider-handle, #wth_div .ui-slider-track .ui-btn.ui-slider-handle, 
+#bmr_div .ui-slider-track .ui-btn.ui-slider-handle, #bfp_div .ui-slider-track .ui-btn.ui-slider-handle{
+	height:31px;
+}

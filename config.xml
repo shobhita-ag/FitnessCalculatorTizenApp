@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/BasiCApp" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="bTJAVUzi1S.BasiCApp" package="bTJAVUzi1S" required_version="2.3"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="493850889.jpg" height="117" width="117"/>
+    <name>Fitness Calculator</name>
+    <tizen:profile name="mobile"/>
+</widget>
