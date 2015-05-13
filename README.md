@@ -1,0 +1,2 @@
+# FitnessCalculator
+A tizen app.
